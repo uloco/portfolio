@@ -5,6 +5,7 @@ import particlesConfig from "./assets/particlesConfig.json";
 
 class App extends React.Component {
   state = { width: window.innerWidth, height: window.innerHeight };
+  resizeTimer;
 
   componentWillMount() {
     this.updateDimensions();
@@ -19,7 +20,10 @@ class App extends React.Component {
   }
 
   updateDimensions = () => {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.setState({ width: window.innerWidth, height: window.innerHeight });
+    }, 150);
   };
 
   render() {
