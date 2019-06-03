@@ -29,9 +29,18 @@ class App extends React.Component {
   render() {
     const { width, height } = this.state;
     return (
-      <div className="App">
-        <Particles params={particlesConfig} width={width} height={height} />
-        <div className="App-content">Content will render here</div>
+      <div>
+        <div className="Particles">
+          <Particles params={particlesConfig} width={width} height={height} />
+        </div>
+        <div className="App">
+          <div className="App-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            asperiores obcaecati cumque perferendis repudiandae eum aliquam
+            vitae eveniet error illum ducimus totam, pariatur neque fugiat a
+            iusto! Quasi, adipisci recusandae?
+          </div>
+        </div>
       </div>
     );
   }
