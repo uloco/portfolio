@@ -2,6 +2,7 @@ import React from "react";
 import Particles from "react-particles-js";
 import "./App.css";
 import particlesConfig from "./assets/particlesConfig.json";
+import Bubble from "./components/Bubble";
 
 class App extends React.Component {
   state = { width: window.innerWidth, height: window.innerHeight };
@@ -34,6 +35,7 @@ class App extends React.Component {
           <Particles params={particlesConfig} width={width} height={height} />
         </div>
         <div className="App">
+          <Bubble />
           <div className="App-content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
             asperiores obcaecati cumque perferendis repudiandae eum aliquam
