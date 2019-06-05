@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/macro";
 import PropTypes from "prop-types";
 
 const Circle = styled.div`
-  background-color: ${(props) => props.color || "white"};
+  background-color: ${props => props.color || "white"};
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -21,6 +21,10 @@ const RedCircle = styled(Circle)`
   background-color: red;
 `;
 
+const YellowCircle = styled(Circle)({
+  backgroundColor: "yellow"
+});
+
 const Bubble = props => {
   return (
     <div>
@@ -29,6 +33,7 @@ const Bubble = props => {
       <Circle />
       <div css={circleStyle} />
       <RedCircle />
+      <YellowCircle />
     </div>
   );
 };
