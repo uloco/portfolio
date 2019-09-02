@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components/macro";
 
@@ -24,11 +23,6 @@ const Flower = props => {
       <Circle>Bits</Circle>
     </div>
   );
-};
-
-Flower.propTypes = {
-  foo: PropTypes.bool,
-  color: PropTypes.string
 };
 
 export default Flower;
