@@ -1,5 +1,5 @@
 import React from "react";
-import { animated, config, useSpring } from "react-spring";
+import { animated, useSpring, useSprings } from "react-spring";
 import styled from "styled-components/macro";
 
 const Circle = styled(animated.div)`
@@ -18,20 +18,36 @@ const Circle = styled(animated.div)`
 `;
 
 const Flower = props => {
-  const style = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: config.gentle
-  });
+  const radius = 200;
+  const circleData = ["Arts", "Sounds", "Thoughts", "Reads", "Bits"];
+  const styleCenter = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+  const springs = useSprings(
+    circleData.length,
+    circleData.map((value, index) => {
+      const degrees = (360 / circleData.length) * index;
+      const radians = degrees / (180 / Math.PI);
+      const x = radius * Math.cos(radians);
+      const y = radius * Math.sin(radians);
+      return {
+        value,
+        opacity: 1,
+        transform: `translate(${x}px,${y}px)`,
+        from: { opacity: 0, transform: "translate(0px,0px)" }
+      };
+    })
+  );
 
   return (
     <div>
-      <Circle style={style}>That's me!</Circle>
-      {/* <Circle>Arts</Circle>
-      <Circle>Sounds</Circle>
-      <Circle>Thoughts</Circle>
-      <Circle>Reads</Circle>
-      <Circle>Bits</Circle> */}
+      <Circle style={styleCenter}>That's me</Circle>
+      {springs.map((props, index) => {
+        return (
+          <Circle style={props} key={index}>
+            {props.value}
+          </Circle>
+        );
+      })}
     </div>
   );
 };

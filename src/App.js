@@ -8,10 +8,6 @@ class App extends React.Component {
   state = { width: window.innerWidth, height: window.innerHeight };
   resizeTimer;
 
-  componentWillMount() {
-    this.updateDimensions();
-  }
-
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
   }
