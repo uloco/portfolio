@@ -14,9 +14,11 @@ const Circle = styled(animated.div)`
   top: 50%;
   left: 50%;
   margin: -50px 0 0 -50px;
-  width: 100px;
-  height: 100px;
-  color: black;
+  width: 150px;
+  height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,13 +26,13 @@ const Circle = styled(animated.div)`
 `;
 
 const Flower = props => {
-  const radius = 200;
+  const radius = 250;
   const circleData = [
-    { text: "Arts", image: bits },
-    { text: "Sounds", image: arts },
-    { text: "Thoughts", image: sounds },
-    { text: "Reads", image: thoughts },
-    { text: "Bits", image: reads }
+    { text: "Arts", image: arts },
+    { text: "Sounds", image: sounds },
+    { text: "Thoughts", image: thoughts },
+    { text: "Reads", image: reads },
+    { text: "Bits", image: bits }
   ];
   const styleCenter = useSpring({ opacity: 1, from: { opacity: 0 } });
 
@@ -60,7 +62,7 @@ const Flower = props => {
       {circles.map((props, index) => {
         return (
           <Circle style={props.spring} key={index} image={props.image}>
-            {props.text}
+            {/* {props.text} */}
           </Circle>
         );
       })}
