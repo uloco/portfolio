@@ -4,8 +4,6 @@ import styled from "styled-components/macro";
 import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
 import reads from "../assets/reads.svg";
-import sounds from "../assets/sounds.svg";
-import thoughts from "../assets/thoughts.svg";
 
 const Circle = styled(animated.div)`
   background-color: ${props => props.color || "white"};
@@ -28,11 +26,11 @@ const Circle = styled(animated.div)`
 const Flower = props => {
   const radius = 250;
   const circleData = [
-    { text: "Arts", image: arts },
-    { text: "Sounds", image: sounds },
-    { text: "Thoughts", image: thoughts },
-    { text: "Reads", image: reads },
-    { text: "Bits", image: bits }
+    { text: "", image: arts },
+    { text: "Sounds", image: "" },
+    { text: "Thoughts", image: "" },
+    { text: "", image: reads },
+    { text: "", image: bits }
   ];
   const styleCenter = useSpring({ opacity: 1, from: { opacity: 0 } });
 
@@ -62,7 +60,7 @@ const Flower = props => {
       {circles.map((props, index) => {
         return (
           <Circle style={props.spring} key={index} image={props.image}>
-            {/* {props.text} */}
+            {props.text}
           </Circle>
         );
       })}
