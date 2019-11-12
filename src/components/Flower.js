@@ -14,7 +14,7 @@ const Circle = styled(animated.div)`
   margin: -50px 0 0 -50px;
   width: 150px;
   height: 150px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 20px;
   display: flex;
