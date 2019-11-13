@@ -1,6 +1,8 @@
 import React from "react";
+import Particles from "react-particles-js";
 import "./App.css";
 import Flower from "./components/Flower";
+import particlesConfig from "./particlesConfig.json";
 
 class App extends React.Component {
   state = { width: window.innerWidth, height: window.innerHeight };
@@ -26,7 +28,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="Particles">
-          {/* <Particles params={particlesConfig} width={width} height={height} /> */}
+          <Particles params={particlesConfig} width={width} height={height} />
         </div>
         <div className="App">
           <Flower />
