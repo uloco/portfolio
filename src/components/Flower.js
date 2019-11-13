@@ -1,28 +1,11 @@
 import React from "react";
 import { animated, useSpring, useSprings } from "react-spring";
-import styled from "styled-components/macro";
 import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
 import reads from "../assets/reads.svg";
+import Circle from "./Circle";
 
-const Circle = styled(animated.div)`
-  background-color: ${props => props.color || "white"};
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -50px 0 0 -50px;
-  width: 150px;
-  height: 150px;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${props => props.image});
-  background-repeat: no-repeat;
-`;
+const AnimatedCircle = animated(Circle);
 
 const Flower = props => {
   const radius = 250;
@@ -59,12 +42,12 @@ const Flower = props => {
 
   return (
     <div>
-      <Circle style={avatarStyle} image={gravatarUrl} />
+      <AnimatedCircle style={avatarStyle} image={gravatarUrl} />
       {circles.map((props, index) => {
         return (
-          <Circle style={props.spring} key={index} image={props.image}>
+          <AnimatedCircle style={props.spring} key={index} image={props.image}>
             {props.text}
-          </Circle>
+          </AnimatedCircle>
         );
       })}
     </div>
