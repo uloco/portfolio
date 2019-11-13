@@ -2,7 +2,7 @@ import React from "react";
 import { animated, useSpring, useSprings } from "react-spring";
 import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
-import reads from "../assets/reads.svg";
+import read from "../assets/read.svg";
 import Circle from "./Circle";
 
 const AnimatedCircle = animated(Circle);
@@ -13,7 +13,7 @@ const Flower = props => {
     { text: "", image: arts },
     { text: "Sounds", image: "" },
     { text: "Thoughts", image: "" },
-    { text: "", image: reads },
+    { text: "", image: read },
     { text: "", image: bits }
   ];
   const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -25,8 +25,8 @@ const Flower = props => {
     circleData.map((value, index) => {
       const degrees = (360 / circleData.length) * index;
       const radians = degrees / (180 / Math.PI);
-      const x = radius * Math.cos(radians);
-      const y = radius * Math.sin(radians);
+      const x = Math.round(radius * Math.cos(radians));
+      const y = Math.round(radius * Math.sin(radians));
       return {
         opacity: 1,
         transform: `translate(${x}px,${y}px)`,

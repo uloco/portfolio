@@ -17,6 +17,7 @@ const Circle = styled.div`
   align-items: center;
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
+  border: 1px solid #282c34;
 `;
 
 export default Circle;
