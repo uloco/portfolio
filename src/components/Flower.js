@@ -21,6 +21,7 @@ const Circle = styled(animated.div)`
   justify-content: center;
   align-items: center;
   background-image: url(${props => props.image});
+  background-repeat: no-repeat;
 `;
 
 const Flower = props => {
@@ -32,7 +33,9 @@ const Flower = props => {
     { text: "", image: reads },
     { text: "", image: bits }
   ];
-  const styleCenter = useSpring({ opacity: 1, from: { opacity: 0 } });
+  const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
+  const gravatarUrl =
+    "https://www.gravatar.com/avatar/c5d5195acc9f791ee59a1f9eeb2bad57?s=150";
 
   const springs = useSprings(
     circleData.length,
@@ -56,7 +59,7 @@ const Flower = props => {
 
   return (
     <div>
-      <Circle style={styleCenter}>That's me</Circle>
+      <Circle style={avatarStyle} image={gravatarUrl} />
       {circles.map((props, index) => {
         return (
           <Circle style={props.spring} key={index} image={props.image}>
