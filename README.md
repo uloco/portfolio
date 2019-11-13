@@ -15,3 +15,4 @@
   * Use ramda instead of (https://github.com/este/este/issues/626)
 * css-in-js library, probably styled.components.
 * runtime type checking (especially api's) with tcomb / flow-runtime
+
