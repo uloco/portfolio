@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 
-export const useWindowSize = (updateTimer) => {
+export const useWindowSize = (updateTimer = 0) => {
   const [dimensions, setDimensions] = React.useState({
     width: window.innerWidth,
     height: window.innerHeight

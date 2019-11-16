@@ -3,7 +3,7 @@ import Particles from "react-particles-js";
 import "./App.css";
 import Flower from "./components/Flower";
 import particlesConfig from "./particlesConfig.json";
-import { useWindowSize } from "./hooks/useResize";
+import { useWindowSize } from "./hooks/useWindowSize";
 
 const App = () => {
   const dimensions = useWindowSize(150);
