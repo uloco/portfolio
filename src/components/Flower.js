@@ -22,7 +22,7 @@ const Flower = props => {
 
   const springs = useSprings(
     circleData.length,
-    circleData.map((value, index) => {
+    circleData.map((_value, index) => {
       const degrees = (360 / circleData.length) * index;
       const radians = degrees / (180 / Math.PI);
       const x = Math.round(radius * Math.cos(radians));
