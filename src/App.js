@@ -12,19 +12,18 @@ const App = () => {
   });
 
   useEffect(() => {
+    const handleResize = _.debounce(() => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
+    }, 150);
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   });
-
-  const handleResize = () => {
-    _.debounce(
-      () =>
-        setDimensions({ width: window.innerWidth, height: window.innerHeight }),
-      150
-    );
-  };
 
   const { width, height } = dimensions;
 
