@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
 
 export const Circle = styled.img`
-  background-color: ${props => props.color || "white"};
+  background-color: ${props => props.color || "#282c34"};
+  color: white;
   border-radius: 50%;
   border: 1px solid #282c34;
   position: fixed;
