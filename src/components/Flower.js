@@ -5,6 +5,7 @@ import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
 import read from "../assets/read.svg";
 import sounds from "../assets/sounds.svg";
+import thoughts from "../assets/thoughts.svg";
 import { useWindowSize } from "../hooks/useWindowSize";
 import Circle from "./Circle";
 
@@ -23,7 +24,7 @@ const Flower = props => {
   const circleData = [
     { text: "arts", image: arts },
     { text: "sounds", image: sounds },
-    { text: "thoughts", image: "" },
+    { text: "thoughts", image: thoughts },
     { text: "read", image: read },
     { text: "bits", image: bits }
   ];
