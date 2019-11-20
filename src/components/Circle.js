@@ -7,12 +7,10 @@ export const Circle = styled.img`
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: -${props => props.radius / 4}px;
-  margin-left: -${props => props.radius / 4}px;
-  width: ${props => props.radius / 2}px;
-  height: ${props => props.radius / 2}px;
-  max-width: 150px;
-  max-height: 150px;
+  margin-top: -${props => props.size / 2}px;
+  margin-left: -${props => props.size / 2}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
   box-sizing: border-box;
 `;
 
