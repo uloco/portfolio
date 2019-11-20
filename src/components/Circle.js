@@ -12,6 +12,7 @@ export const Circle = styled.img`
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 export default Circle;
