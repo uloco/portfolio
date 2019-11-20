@@ -4,6 +4,7 @@ import { animated, useSpring, useSprings } from "react-spring";
 import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
 import read from "../assets/read.svg";
+import sounds from "../assets/sounds.svg";
 import { useWindowSize } from "../hooks/useWindowSize";
 import Circle from "./Circle";
 
@@ -21,7 +22,7 @@ const Flower = props => {
 
   const circleData = [
     { text: "arts", image: arts },
-    { text: "sounds", image: "" },
+    { text: "sounds", image: sounds },
     { text: "thoughts", image: "" },
     { text: "read", image: read },
     { text: "bits", image: bits }
