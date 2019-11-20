@@ -1,31 +1,19 @@
 import styled from "styled-components/macro";
-import { device } from "../device";
 
-const Circle = styled.div`
+export const Circle = styled.img`
   background-color: ${props => props.color || "white"};
   border-radius: 50%;
-  position: absolute;
+  border: 1px solid #282c34;
+  position: fixed;
   top: 50%;
   left: 50%;
-  margin: -50px 0 0 -50px;
-  width: ${props => props.radius || 150}px;
-  height: ${props => props.radius || 150}px;
-  /* width: 150px;
-  height: 150px; */
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${props => props.image});
-  background-repeat: no-repeat;
-  border: 1px solid #282c34;
-
-  @media ${device.mobileL} {
-    width: 75px;
-    height: 75px;
-  }
+  margin-top: -${props => props.radius / 4}px;
+  margin-left: -${props => props.radius / 4}px;
+  width: ${props => props.radius / 2}px;
+  height: ${props => props.radius / 2}px;
+  max-width: 150px;
+  max-height: 150px;
+  box-sizing: border-box;
 `;
 
 export default Circle;
