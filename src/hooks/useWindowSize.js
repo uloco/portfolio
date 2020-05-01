@@ -4,14 +4,14 @@ import _ from "lodash";
 export const useWindowSize = (updateTimer = 0) => {
   const [dimensions, setDimensions] = React.useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
 
   React.useEffect(() => {
     const handleResize = _.debounce(() => {
       setDimensions({
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
       });
     }, updateTimer);
 

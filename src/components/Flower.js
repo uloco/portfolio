@@ -15,7 +15,7 @@ const maxCircleRadius = 150;
 const gravatarUrl = `https://www.gravatar.com/avatar/
 c5d5195acc9f791ee59a1f9eeb2bad57?s=${maxCircleRadius}`;
 
-const Flower = props => {
+const Flower = (props) => {
   const { width } = useWindowSize();
 
   const circleRadius = _.clamp(Math.round(width * 0.125), 75, maxCircleRadius);
@@ -26,7 +26,7 @@ const Flower = props => {
     { text: "sounds", image: sounds },
     { text: "thoughts", image: thoughts },
     { text: "read", image: read },
-    { text: "bits", image: bits }
+    { text: "bits", image: bits },
   ];
   const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
 
@@ -40,14 +40,14 @@ const Flower = props => {
       return {
         opacity: 1,
         transform: `translate(${x}px,${y}px)`,
-        from: { opacity: 0, transform: "translate(0px,0px)" }
+        from: { opacity: 0, transform: "translate(0px,0px)" },
       };
     })
   );
 
   const circles = circleData.map((data, i) => ({
     ...data,
-    spring: springs[i]
+    spring: springs[i],
   }));
 
   return (
