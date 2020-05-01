@@ -8,7 +8,7 @@
 .Particles {
   position: fixed;
   z-index: -1;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: #f5f0db;
 }
