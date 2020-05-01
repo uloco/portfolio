@@ -15,7 +15,6 @@ const maxCircleRadius = 150;
 const gravatarUrl = `https://www.gravatar.com/avatar/
 c5d5195acc9f791ee59a1f9eeb2bad57?s=${maxCircleRadius}`;
 
-
 const Flower = (props) => {
   const { width } = useWindowSize();
 
@@ -23,19 +22,19 @@ const Flower = (props) => {
   const flowerRadius = _.clamp(Math.round(width * 0.2), 100, 250);
 
   const circleData = [
-    { text: "bits", image: bits },
-    { text: "arts", image: arts },
-    { text: "sounds", image: sounds },
-    { text: "thoughts", image: thoughts },
-    { text: "read", image: read },
+    { key: "bits", image: bits },
+    { key: "arts", image: arts },
+    { key: "sounds", image: sounds },
+    { key: "thoughts", image: thoughts },
+    { key: "read", image: read },
   ];
   const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
 
-  const trail = useSprings(
+  const springs = useSprings(
     circleData.length,
     circleData.map((_value, index) => {
       const offset = -70;
-      const degrees = ((360 / circleData.length) * index) + offset;
+      const degrees = (360 / circleData.length) * index + offset;
       const radians = degrees / (180 / Math.PI);
       const x = Math.round(flowerRadius * Math.cos(radians));
       const y = Math.round(flowerRadius * Math.sin(radians));
@@ -50,7 +49,7 @@ const Flower = (props) => {
 
   const circles = circleData.map((data, i) => ({
     ...data,
-    spring: trail[i],
+    spring: springs[i],
   }));
 
   return (
@@ -60,14 +59,14 @@ const Flower = (props) => {
         size={circleRadius}
         style={avatarStyle}
       />
-      {circles.map((props, index) => {
+      {circles.map((props) => {
         return (
           <AnimatedCircle
             src={props.image}
-            alt={props.text}
+            alt={`${props.key} page`}
             size={circleRadius}
             style={props.spring}
-            key={index}
+            key={props.key}
           />
         );
       })}
