@@ -7,19 +7,23 @@ import read from "../assets/read.svg";
 import sounds from "../assets/sounds.svg";
 import thoughts from "../assets/thoughts.svg";
 import { useWindowSize } from "../hooks/useWindowSize";
-import Circle from "./Circle";
+import Circle, { maxCircleRadius } from "./Circle";
 import { Link } from "react-router-dom";
+import styled from "styled-components/macro";
 
-const AnimatedCircle = animated(Circle);
+const CenteredCircle = styled(Circle)`
+  top: 50%;
+  left: 50%;
+`;
 
-const maxCircleRadius = 150;
+const AnimatedCircle = animated(CenteredCircle);
+
 const gravatarUrl = `https://www.gravatar.com/avatar/
 c5d5195acc9f791ee59a1f9eeb2bad57?s=${maxCircleRadius}`;
 
 const Flower = (props) => {
   const { width } = useWindowSize();
 
-  const circleRadius = _.clamp(Math.round(width * 0.125), 75, maxCircleRadius);
   const flowerRadius = _.clamp(Math.round(width * 0.2), 100, 250);
 
   const circleData = [
@@ -43,7 +47,10 @@ const Flower = (props) => {
         opacity: 1,
         transform: `translate(${x}px,${y}px)`,
         delay: (index + 1) * 60,
-        from: { opacity: 0, transform: "translate(0px,0px)" },
+        from: {
+          opacity: 0,
+          transform: "translate(0px,0px)",
+        },
       };
     })
   );
@@ -55,18 +62,13 @@ const Flower = (props) => {
 
   return (
     <div>
-      <AnimatedCircle
-        src={gravatarUrl}
-        size={circleRadius}
-        style={avatarStyle}
-      />
+      <CenteredCircle src={gravatarUrl} style={avatarStyle} />
       {circles.map((props) => {
         return (
           <Link to={props.key}>
             <AnimatedCircle
               src={props.image}
               alt={`${props.key} page`}
-              size={circleRadius}
               style={props.spring}
               key={props.key}
             />
