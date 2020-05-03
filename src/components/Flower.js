@@ -8,6 +8,7 @@ import sounds from "../assets/sounds.svg";
 import thoughts from "../assets/thoughts.svg";
 import { useWindowSize } from "../hooks/useWindowSize";
 import Circle from "./Circle";
+import { Link } from "react-router-dom";
 
 const AnimatedCircle = animated(Circle);
 
@@ -61,13 +62,15 @@ const Flower = (props) => {
       />
       {circles.map((props) => {
         return (
-          <AnimatedCircle
-            src={props.image}
-            alt={`${props.key} page`}
-            size={circleRadius}
-            style={props.spring}
-            key={props.key}
-          />
+          <Link to={props.key}>
+            <AnimatedCircle
+              src={props.image}
+              alt={`${props.key} page`}
+              size={circleRadius}
+              style={props.spring}
+              key={props.key}
+            />
+          </Link>
         );
       })}
     </div>
