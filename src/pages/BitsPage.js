@@ -5,11 +5,13 @@ import Circle from "../components/Circle";
 
 const Container = styled.div`
   flex-direction: "column";
-  margin: 100px;
+  margin: 0 48px;
+  font-size: 21px;
 `;
 
 const HeaderCircle = styled(Circle)`
   position: initial;
+  margin-top: 10px;
 `;
 
 const BitsPage = (props) => {
