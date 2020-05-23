@@ -1,18 +1,16 @@
 import React from "react";
 import Particles from "react-particles-js";
-import "./App.css";
-import particlesConfig from "./particlesConfig.json";
-import { useWindowSize } from "./hooks/useWindowSize";
-
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   Redirect,
+  Route,
+  Switch,
 } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import "./App.css";
+import { useWindowSize } from "./hooks/useWindowSize";
 import BitsPage from "./pages/BitsPage";
+import HomePage from "./pages/HomePage";
+import particlesConfig from "./particlesConfig.json";
 
 const App = () => {
   const dimensions = useWindowSize(150);
