@@ -62,7 +62,13 @@ const Flower = (props) => {
 
   return (
     <div>
-      <CenteredCircle src={gravatarUrl} style={avatarStyle} />
+      <Link to={"about-me"}>
+        <CenteredCircle
+          src={gravatarUrl}
+          style={avatarStyle}
+          alt={"about me page"}
+        />
+      </Link>
       {circles.map((props) => {
         return (
           <Link key={props.key} to={props.key}>
