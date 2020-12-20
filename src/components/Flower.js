@@ -10,36 +10,45 @@ import avatar from "../assets/avatar.jpeg";
 
 import { useWindowSize } from "../hooks/useWindowSize";
 import Circle from "./Circle";
+import { Link } from "react-router-dom";
+import styled from "styled-components/macro";
 
-const AnimatedCircle = animated(Circle);
-const maxCircleRadius = 150;
+const CenteredCircle = styled(Circle)`
+  top: 50%;
+  left: 50%;
+`;
+const AnimatedCircle = animated(CenteredCircle);
 
 const Flower = (props) => {
   const { width } = useWindowSize();
 
-  const circleRadius = _.clamp(Math.round(width * 0.125), 75, maxCircleRadius);
   const flowerRadius = _.clamp(Math.round(width * 0.2), 100, 250);
 
   const circleData = [
-    { text: "arts", image: arts },
-    { text: "sounds", image: sounds },
-    { text: "thoughts", image: thoughts },
-    { text: "books", image: books },
-    { text: "bits", image: bits },
+    { key: "bits", image: bits },
+    { key: "arts", image: arts },
+    { key: "sounds", image: sounds },
+    { key: "thoughts", image: thoughts },
+    { key: "books", image: books },
   ];
   const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   const springs = useSprings(
     circleData.length,
     circleData.map((_value, index) => {
-      const degrees = (360 / circleData.length) * index;
+      const offset = -70;
+      const degrees = (360 / circleData.length) * index + offset;
       const radians = degrees / (180 / Math.PI);
       const x = Math.round(flowerRadius * Math.cos(radians));
       const y = Math.round(flowerRadius * Math.sin(radians));
       return {
         opacity: 1,
         transform: `translate(${x}px,${y}px)`,
-        from: { opacity: 0, transform: "translate(0px,0px)" },
+        delay: (index + 1) * 60,
+        from: {
+          opacity: 0,
+          transform: "translate(0px,0px)",
+        },
       };
     })
   );
@@ -51,21 +60,23 @@ const Flower = (props) => {
 
   return (
     <div>
-      <AnimatedCircle
-        src={avatar}
-        alt={"avatar"}
-        size={circleRadius}
-        style={avatarStyle}
-      />
-      {circles.map((props, index) => {
+      <Link to={"about-me"}>
+        <CenteredCircle
+          src={avatar}
+          style={avatarStyle}
+          alt={"about me page"}
+        />
+      </Link>
+      {circles.map((props) => {
         return (
-          <AnimatedCircle
-            src={props.image}
-            alt={props.text}
-            size={circleRadius}
-            style={props.spring}
-            key={index}
-          />
+          <Link key={props.key} to={props.key}>
+            <AnimatedCircle
+              src={props.image}
+              alt={`${props.key} page`}
+              style={props.spring}
+              key={props.key}
+            />
+          </Link>
         );
       })}
     </div>
