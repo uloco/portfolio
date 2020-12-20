@@ -3,18 +3,16 @@ import React from "react";
 import { animated, useSpring, useSprings } from "react-spring";
 import arts from "../assets/arts.svg";
 import bits from "../assets/bits.svg";
-import read from "../assets/read.svg";
+import books from "../assets/books.svg";
 import sounds from "../assets/sounds.svg";
 import thoughts from "../assets/thoughts.svg";
+import avatar from "../assets/avatar.jpeg";
+
 import { useWindowSize } from "../hooks/useWindowSize";
 import Circle from "./Circle";
 
 const AnimatedCircle = animated(Circle);
-
 const maxCircleRadius = 150;
-const gravatarUrl = `https://www.gravatar.com/avatar/
-c5d5195acc9f791ee59a1f9eeb2bad57?s=${maxCircleRadius}`;
-
 
 const Flower = (props) => {
   const { width } = useWindowSize();
@@ -27,7 +25,7 @@ const Flower = (props) => {
     { text: "arts", image: arts },
     { text: "sounds", image: sounds },
     { text: "thoughts", image: thoughts },
-    { text: "read", image: read },
+    { text: "books", image: books },
   ];
   const avatarStyle = useSpring({ opacity: 1, from: { opacity: 0 } });
 
@@ -35,7 +33,7 @@ const Flower = (props) => {
     circleData.length,
     circleData.map((_value, index) => {
       const offset = -70;
-      const degrees = ((360 / circleData.length) * index) + offset;
+      const degrees = (360 / circleData.length) * index + offset;
       const radians = degrees / (180 / Math.PI);
       const x = Math.round(flowerRadius * Math.cos(radians));
       const y = Math.round(flowerRadius * Math.sin(radians));
@@ -56,7 +54,8 @@ const Flower = (props) => {
   return (
     <div>
       <AnimatedCircle
-        src={gravatarUrl}
+        src={avatar}
+        alt={"avatar"}
         size={circleRadius}
         style={avatarStyle}
       />
