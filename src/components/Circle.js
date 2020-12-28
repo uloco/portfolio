@@ -4,7 +4,7 @@ import { useWindowSize } from "../hooks/useWindowSize";
 import _ from "lodash";
 
 const StyledCircle = styled.img`
-  background-color: ${(props) => props.color || "#282c34"};
+  background-color: ${(props) => props.color};
   color: white;
   border-radius: 50%;
   border: 1px solid #282c34;
