@@ -61,7 +61,7 @@ const Flower = (props) => {
   return (
     <div>
       <Link to={"about-me"}>
-        <CenteredCircle
+        <AnimatedCircle
           src={avatar}
           style={avatarStyle}
           alt={"about me page"}
